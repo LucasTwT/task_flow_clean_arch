@@ -1,20 +1,14 @@
-from dataclasses import dataclass
+from models.user import User
 
-@dataclass
-class UserData:
-    id: str
-    username: str
-    email: str
-    password: str
 
 class UserRepository:
     def __init__(self) -> None:
-        self.users: list[UserData] = []
+        self.users: list[User] = []
 
-    def save_user(self, userdata: UserData) -> None:
-        self.users.append(userdata)
+    def save_user(self, user: User) -> None:
+        self.users.append(user)
 
-    def get_user(self, id: str) -> UserData | None:
+    def get_user(self, id: str) -> User | None:
         for user in self.users:
             if user.id == id:
                 return user

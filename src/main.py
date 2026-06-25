@@ -1,8 +1,8 @@
-from repositories import UserRepository, UserData
-from validators import UserValidator
+from repositories import UserRepository
+from models.user import User, UserValidator
 from notifiers import EmailNotifier, SMSNotifier, PushNotifier
 from notifiers import UserNotifier
-from task import Task, RecurringTask, MilestoneTask
+from models.task import Task, RecurringTask, MilestoneTask
 from repository_isp import TaskDTO, InMemoryTaskReader
 from task_service_dip import TaskData, ITaskRepository, PostgresTaskRepository, TaskService
 
@@ -15,12 +15,12 @@ def main() -> None:
     validator = UserValidator()
     repository = UserRepository()
 
-    repository.save_user(UserData(username="Lucas", email="lucas@gmail.com", password="123123123", id="123"))
+    repository.save_user(User(username="Lucas", email="lucas@gmail.com", password="123123123", id="123"))
     print("Get user: ", repository.get_user("123"))
     print("Validate email: ", validator.validate_email("adfadfadfa"))
     print("Validate email: ", validator.validate_email("lucas@gmail.com"))
 
-    repository.save_user(UserData(username="jose", email="jose@gmail.com", password="ndflkansdflakdnfald", id="124"))
+    repository.save_user(User(username="jose", email="jose@gmail.com", password="ndflkansdflakdnfald", id="124"))
     print("Validate password: ", validator.validate_password("123"))
     print("Validate password: ", validator.validate_password("1231231"))
     print("Get user: ", repository.get_user("124"))
