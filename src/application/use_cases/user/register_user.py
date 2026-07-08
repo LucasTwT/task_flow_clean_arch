@@ -3,7 +3,6 @@ from dataclasses import dataclass
 from models.user import User
 from repositories import IUserRepository
 
-
 @dataclass
 class RegisterUserInput:
     id: str

@@ -27,6 +27,9 @@ class Task:
 
     def get_status(self) -> bool:
         return self._status
+    
+    def get_task_name(self) -> str:
+        return self._task_name
 
     def complete(self) -> None:
         self._status = True
