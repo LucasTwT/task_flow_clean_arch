@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from models.task_entity import Task
-from repositories import ITaskRepository, IProjectRepository
+from repositories import ITaskWriter, IProjectRepository
 
 
 @dataclass
@@ -15,7 +15,7 @@ class CreateTaskInput:
 class CreateTaskUseCase:
     def __init__(
         self,
-        task_repository: ITaskRepository,
+        task_repository: ITaskWriter,
         project_repository: IProjectRepository,
     ) -> None:
         self.task_repository = task_repository

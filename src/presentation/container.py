@@ -51,9 +51,9 @@ class Container:
         self.restore_project_uc = RestoreProjectUseCase(self.project_repo)
         self.create_task_uc = CreateTaskUseCase(self.task_repo, self.project_repo)
         self.list_project_tasks_uc = ListProjectTasksUseCase(self.task_repo, self.project_repo)
-        self.complete_task_uc = CompleteTaskUseCase(self.task_repo)
-        self.reopen_task_uc = ReopenTaskUseCase(self.task_repo)
-        self.assign_task_uc = AssignTaskUseCase(self.task_repo, self.user_repo, self.notifier)
+        self.complete_task_uc = CompleteTaskUseCase(self.task_repo, self.task_repo)
+        self.reopen_task_uc = ReopenTaskUseCase(self.task_repo, self.task_repo)
+        self.assign_task_uc = AssignTaskUseCase(self.task_repo, self.user_repo, self.task_repo, self.notifier)
         self.get_user_tasks_uc = GetUserTasksUseCase(self.task_repo)
 
         # --- Controllers ---

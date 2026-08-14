@@ -1,9 +1,9 @@
 from models.task_entity import Task
-from repositories import ITaskRepository
+from repositories import ITaskReader
 
 
 class GetUserTasksUseCase:
-    def __init__(self, task_repository: ITaskRepository) -> None:
+    def __init__(self, task_repository: ITaskReader) -> None:
         self.task_repository = task_repository
 
     def execute(self, user_id: str) -> list[Task]:

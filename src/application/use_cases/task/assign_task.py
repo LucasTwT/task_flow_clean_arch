@@ -1,18 +1,20 @@
 from models.task_entity import Task
 from models.user import User
-from repositories import ITaskRepository, IUserRepository
+from repositories import ITaskReader, ITaskWriter, IUserRepository
 from notifiers import UserNotifier
 
 
 class AssignTaskUseCase:
     def __init__(
         self,
-        task_repository: ITaskRepository,
+        task_repository: ITaskReader,
         user_repository: IUserRepository,
+        task_writer: ITaskWriter,
         notifier: UserNotifier,
     ) -> None:
         self.task_repository = task_repository
         self.user_repository = user_repository
+        self.task_writer = task_writer
         self.notifier = notifier
 
     def execute(self, task_id: str, user_id: str) -> Task:
@@ -25,7 +27,7 @@ class AssignTaskUseCase:
             raise ValueError("El usuario no existe")
 
         task.assign_to(user_id)
-        self.task_repository.update_task(task)
+        self.task_writer.update_task(task)
 
         self.notifier.send(
             to=user.email,

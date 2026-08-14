@@ -27,13 +27,7 @@ class IProjectRepository(ABC):
     @abstractmethod
     def exists_by_name(self, name: str) -> bool: ...
 
-class ITaskRepository(ABC):
-    @abstractmethod
-    def save_task(self, task: Task) -> None: ...
-
-    @abstractmethod
-    def update_task(self, task: Task) -> None: ...
-
+class ITaskReader(ABC):
     @abstractmethod
     def get_task_by_project_id(self, project_id: str) -> list[Task]: ...
 
@@ -45,6 +39,14 @@ class ITaskRepository(ABC):
 
     @abstractmethod
     def get_tasks_by_assigned_user(self, user_id: str) -> list[Task]: ...
+
+
+class ITaskWriter(ABC):
+    @abstractmethod
+    def save_task(self, task: Task) -> None: ...
+
+    @abstractmethod
+    def update_task(self, task: Task) -> None: ...
 
 
 class UserRepository(IUserRepository):
@@ -90,7 +92,7 @@ class ProjectRepository(IProjectRepository):
     def exists_by_name(self, name: str) -> bool:
         return any(project.name == name for project in self.projects)
 
-class TaskRepository(ITaskRepository):
+class TaskRepository(ITaskReader, ITaskWriter):
     def __init__(self) -> None:
         self.tasks: list[Task] = []
 

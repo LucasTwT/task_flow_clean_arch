@@ -1,11 +1,11 @@
 from models.task_entity import Task
-from repositories import ITaskRepository, IProjectRepository
+from repositories import ITaskReader, IProjectRepository
 
 
 class ListProjectTasksUseCase:
     def __init__(
         self,
-        task_repository: ITaskRepository,
+        task_repository: ITaskReader,
         project_repository: IProjectRepository,
     ) -> None:
         self.task_repository = task_repository
