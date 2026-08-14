@@ -7,7 +7,7 @@ from application.schemas.project.project_schema import (
     CreateProjectResponseSchema,
     ProjectResponseSchema,
 )
-from presentation.container import Container, get_container
+from infrastructure.container import Container, get_container
 
 router = APIRouter(tags=["projects"])
 

@@ -1,5 +1,9 @@
-from repositories import UserRepository, ProjectRepository, TaskRepository
-from notifiers import EmailNotifier
+from infrastructure.notifiers.smtp import EmailNotifier
+from infrastructure.repositories.in_memory import (
+    ProjectRepository,
+    TaskRepository,
+    UserRepository,
+)
 
 from application.use_cases.user.register_user import RegisterUserUseCase
 from application.use_cases.user.get_user_profile import GetUserProfileUseCase

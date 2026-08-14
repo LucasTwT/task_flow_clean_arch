@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 
 from application.schemas.user.user_schema import RegisterUserRequestSchema, RegisterUserResponseSchema
 from application.schemas.user.user_profile_schema import GetUserProfileResponseSchema
-from presentation.container import Container, get_container
+from infrastructure.container import Container, get_container
 
 router = APIRouter(tags=["users"])
 

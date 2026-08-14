@@ -9,7 +9,7 @@ from application.schemas.task.task_schema import (
     TaskIdRequestSchema,
     TaskResponseSchema,
 )
-from presentation.container import Container, get_container
+from infrastructure.container import Container, get_container
 
 router = APIRouter(tags=["tasks"])
 

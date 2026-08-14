@@ -1,10 +1,15 @@
-from repositories import UserRepository
-from models.user import User, UserValidator
-from notifiers import EmailNotifier, SMSNotifier, PushNotifier
-from notifiers import UserNotifier
-from models.task import Task, RecurringTask, MilestoneTask
-from repository_isp import TaskDTO, InMemoryTaskReader
-from task_service_dip import TaskData, ITaskRepository, PostgresTaskRepository, TaskService
+from domain.models.user import User, UserValidator
+from domain.ports.notifiers import UserNotifier
+from infrastructure.notifiers.smtp import EmailNotifier, PushNotifier, SMSNotifier
+from infrastructure.repositories.in_memory import UserRepository
+from sandbox.repository_isp import InMemoryTaskReader, TaskDTO
+from sandbox.task_lsp_demo import MilestoneTask, RecurringTask, Task
+from sandbox.task_service_dip import (
+    ITaskRepository,
+    PostgresTaskRepository,
+    TaskData,
+    TaskService,
+)
 
 def main() -> None:
     # SRP — Single Responsibility Principle

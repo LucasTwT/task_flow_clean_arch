@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from repositories import IProjectRepository
-from models.project import Project
+from domain.ports.repositories import IProjectRepository
+from domain.models.project import Project
 
 
 @dataclass

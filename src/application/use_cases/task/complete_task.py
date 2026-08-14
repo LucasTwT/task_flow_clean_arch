@@ -1,5 +1,5 @@
-from models.task_entity import Task
-from repositories import ITaskReader, ITaskWriter
+from domain.models.task import Task
+from domain.ports.repositories import ITaskReader, ITaskWriter
 
 
 class CompleteTaskUseCase:

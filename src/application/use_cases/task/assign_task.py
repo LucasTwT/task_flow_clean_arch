@@ -1,7 +1,7 @@
-from models.task_entity import Task
-from models.user import User
-from repositories import ITaskReader, ITaskWriter, IUserRepository
-from notifiers import UserNotifier
+from domain.models.task import Task
+from domain.models.user import User
+from domain.ports.repositories import ITaskReader, ITaskWriter, IUserRepository
+from domain.ports.notifiers import UserNotifier
 
 
 class AssignTaskUseCase:

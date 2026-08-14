@@ -1,5 +1,5 @@
-from models.project import Project
-from repositories import IProjectRepository
+from domain.models.project import Project
+from domain.ports.repositories import IProjectRepository
 
 
 class ArchiveProjectUseCase:

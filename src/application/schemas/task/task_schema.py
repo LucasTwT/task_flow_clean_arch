@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from models.user import User
+from domain.models.user import User
 
 
 class CreateTaskRequestSchema(BaseModel):

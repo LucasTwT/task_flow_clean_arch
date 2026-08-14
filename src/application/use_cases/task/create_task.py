@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from models.task_entity import Task
-from repositories import ITaskWriter, IProjectRepository
+from domain.models.task import Task
+from domain.ports.repositories import ITaskWriter, IProjectRepository
 
 
 @dataclass

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from models.user import User
-from repositories import IUserRepository
+from domain.models.user import User
+from domain.ports.repositories import IUserRepository
 
 @dataclass
 class RegisterUserInput:

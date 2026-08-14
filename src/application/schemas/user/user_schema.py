@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr, Field
 
-from models.user import User
+from domain.models.user import User
 
 
 class RegisterUserRequestSchema(BaseModel):

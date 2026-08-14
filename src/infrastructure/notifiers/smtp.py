@@ -1,10 +1,6 @@
-from abc import ABC, abstractmethod
-
 from typing_extensions import override
 
-class UserNotifier(ABC):
-    @abstractmethod
-    def send(self, to: str, message: str) -> None: ...
+from domain.ports.notifiers import UserNotifier
 
 
 class EmailNotifier(UserNotifier):
